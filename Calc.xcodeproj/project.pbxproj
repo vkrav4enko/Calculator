@@ -23,6 +23,7 @@
 		E756F2FB17747CDD001574AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E756F2D617747CDD001574AE /* Foundation.framework */; };
 		E756F30317747CDD001574AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E756F30117747CDD001574AE /* InfoPlist.strings */; };
 		E756F30617747CDD001574AE /* CalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F30517747CDD001574AE /* CalcTests.m */; };
+		E756F31117748428001574AE /* CalculateThis.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F31017748428001574AE /* CalculateThis.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		E756F30217747CDD001574AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E756F30417747CDD001574AE /* CalcTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcTests.h; sourceTree = "<group>"; };
 		E756F30517747CDD001574AE /* CalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcTests.m; sourceTree = "<group>"; };
+		E756F30F17748428001574AE /* CalculateThis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateThis.h; sourceTree = "<group>"; };
+		E756F31017748428001574AE /* CalculateThis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateThis.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				E756F2E417747CDD001574AE /* AppDelegate.m */,
 				E756F2EC17747CDD001574AE /* MainStoryboard.storyboard */,
 				E756F2EF17747CDD001574AE /* ViewController.h */,
+				E756F30F17748428001574AE /* CalculateThis.h */,
+				E756F31017748428001574AE /* CalculateThis.m */,
 				E756F2F017747CDD001574AE /* ViewController.m */,
 				E756F2DB17747CDD001574AE /* Supporting Files */,
 			);
@@ -273,6 +278,7 @@
 				E756F2E117747CDD001574AE /* main.m in Sources */,
 				E756F2E517747CDD001574AE /* AppDelegate.m in Sources */,
 				E756F2F117747CDD001574AE /* ViewController.m in Sources */,
+				E756F31117748428001574AE /* CalculateThis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
