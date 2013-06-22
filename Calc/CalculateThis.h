@@ -12,7 +12,8 @@
 
 @property(nonatomic) double result;
 @property(nonatomic) double accumulator;
--(double) calculateResult: (int) operation;
 
+
+- (void)input: (NSString *)value;
 
 @end

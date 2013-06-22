@@ -124,9 +124,9 @@
 				E756F2E417747CDD001574AE /* AppDelegate.m */,
 				E756F2EC17747CDD001574AE /* MainStoryboard.storyboard */,
 				E756F2EF17747CDD001574AE /* ViewController.h */,
+				E756F2F017747CDD001574AE /* ViewController.m */,
 				E756F30F17748428001574AE /* CalculateThis.h */,
 				E756F31017748428001574AE /* CalculateThis.m */,
-				E756F2F017747CDD001574AE /* ViewController.m */,
 				E756F2DB17747CDD001574AE /* Supporting Files */,
 			);
 			path = Calc;
@@ -459,6 +459,7 @@
 				E756F30B17747CDD001574AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E756F30C17747CDD001574AE /* Build configuration list for PBXNativeTarget "CalcTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +468,7 @@
 				E756F30E17747CDD001574AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

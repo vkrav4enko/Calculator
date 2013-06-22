@@ -12,10 +12,11 @@
 @property (nonatomic) double result;
 @property (nonatomic) double number;
 @property (nonatomic) double operation;
+@property (nonatomic) BOOL userIsInTheMiddleOfTypingANumber;
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
--(IBAction)numberPressed:(id)sender;
+-(IBAction)numberPressed:(UIButton *)sender;
 -(IBAction)operatorPressed:(id)sender;
 -(IBAction)operationCancel:(id)sender;
 -(IBAction)numberDelete:(id)sender;

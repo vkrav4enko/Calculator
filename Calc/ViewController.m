@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) CalculateThis *calculateThis;
+
 @end
 
 @implementation ViewController
@@ -21,6 +23,15 @@
     [super viewDidLoad];
     _textField.text = @"0";
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    _calculateThis = [[CalculateThis alloc] init];
+    
+    [_calculateThis input:@"2"];
+    [_calculateThis input:@"+"];
+    [_calculateThis input:@"10"];
+    if (_calculateThis.result == 12) {
+        NSLog(@"Ok!");
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,37 +40,50 @@
     // Dispose of any resources that can be recreated.
 }
 
- /*
--(IBAction)numberPressed:(id)sender
-{
-
-    if([sender tag] != 11){
-    _textField.text = [NSString stringWithFormat:@"%@%d", _textField.text.lowercaseString, (int)[sender tag]];
-        
-        
-    }
-    else {
-        _textField.text = [NSString stringWithFormat:@"%@%@", _textField.text, @"."];
+- (IBAction)numberPressed:(UIButton *)sender {
+    if (![_textField.text integerValue]) {
+        _textField.text = @"";
     }
     
+    _textField.text = [_textField.text stringByAppendingString: sender.titleLabel.text];
     
-    
-    _number = [_textField.text doubleValue];
-    
-    _textField.text = [NSString stringWithFormat:@"%2f",_number];
+    //    NSString *digit = sender.titleLabel.text;
+//    if (_userIsInTheMiddleOfTypingANumber) {
+//        _textField.text = [_textField.text stringByAppendingString:digit];
+//    }
+//    else
+//    {
+//        _textField.text = digit;
+//        _userIsInTheMiddleOfTypingANumber = YES;
+//    }
+//    _number = [_textField.text doubleValue];
 }
-*/
 
-
+/*
 -(IBAction)numberPressed:(id)sender
 {
     _number = _number*10 + (float)[sender tag];
     
     _textField.text = [NSString stringWithFormat:@"%2f",_number];
 }
+*/
 
--(IBAction)operatorPressed:(id)sender
+-(IBAction)operatorPressed:(UIButton *)sender
 {
+    if ([sender tag])
+    
+    [_calculateThis input:_textField.text];
+    [_calculateThis input:sender.titleLabel.text];
+
+    if ([sender.titleLabel.text isEqualToString:@"="]) {
+        _textField.text = [NSString stringWithFormat:@"%f", _calculateThis.result];
+    } else {
+        _textField.text = @"";
+    }
+    
+}
+/*
+    _userIsInTheMiddleOfTypingANumber = NO;
     CalculateThis *calculateThis = [[CalculateThis alloc]init];
     [calculateThis setResult:_result];
     [calculateThis setAccumulator:_number];
@@ -70,6 +94,7 @@
         _result = 0;
     }
     _operation = [sender tag];
+
 }
 
 -(IBAction)numberDelete:(id)sender
@@ -84,5 +109,5 @@
     _textField.text = @"0";
     _operation = 0;
 }
-
+ */
 @end

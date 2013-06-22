@@ -8,37 +8,42 @@
 
 #import "CalculateThis.h"
 
+@interface CalculateThis ()
+
+@property (nonatomic) NSNumber *tempValue;
+@property (nonatomic) NSString *operation;
+
+@end
+
 @implementation CalculateThis
 
 @synthesize result;
 @synthesize accumulator;
 
--(double)calculateResult:(int)operation
-{
-    if (operation == 0)
-        result = accumulator;
-    else{
-        switch (operation) {
-            case 1:
-                result += accumulator;
-                break;
-            case 2:
-                result -= accumulator;
-                break;
-            case 3:
-                result *= accumulator;
-                break;
-            case 4:
-                result /= accumulator;
-                break;
-            case 5:
-                result = -result;
-                break;
-            default:
-                break;
+
+
+
+- (void)input: (NSString *)value {
+    if ([value isEqualToString:@"+"] || [value isEqualToString:@"-"] || [value isEqualToString:@"*"] || [value isEqualToString:@"/"]) {
+        _operation = value;
+    } else if  ([value isEqualToString:@"="]){
+        
+    } else {
+        if (_tempValue) {
+            if ([_operation isEqualToString:@"+"]) {
+                result = [_tempValue doubleValue] + [value doubleValue];
+            } else if ([_operation isEqualToString:@"-"]) {
+                result = [_tempValue doubleValue] - [value doubleValue];
+            } else if ([_operation isEqualToString:@"*"]) {
+                result = [_tempValue doubleValue] * [value doubleValue];
+            } else if ([_operation isEqualToString:@"/"]) {
+                result = [_tempValue doubleValue] / [value doubleValue];
+            }
+            _tempValue = nil;
+        } else {
+            _tempValue = @([value doubleValue]);
         }
     }
-    return result;
 }
 
 @end
