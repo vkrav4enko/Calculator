@@ -85,8 +85,8 @@
 
 - (void)calculator:(CalculateThis *)calculator
          putResult:(double)result {
-    
-    _textField.text = [NSString stringWithFormat:@"%f", result];
+        
+    _textField.text = [@(result) stringValue];
 }
 
 -(void) calculatorClear:(CalculateThis *)calculator {
