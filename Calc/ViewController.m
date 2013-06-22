@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Владимир. All rights reserved.
 //
 
-#import "stdio.h"
+
 #import "CalculateThis.h"
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <CalcThisDelegate>
 
 @property (nonatomic, strong) CalculateThis *calculateThis;
+@property (nonatomic) BOOL afterEqualWasPressed;
 
 @end
 
@@ -25,13 +26,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _calculateThis = [[CalculateThis alloc] init];
-    
-    [_calculateThis input:@"2"];
-    [_calculateThis input:@"+"];
-    [_calculateThis input:@"10"];
-    if (_calculateThis.result == 12) {
-        NSLog(@"Ok!");
-    }
+    _calculateThis.delegate = self; 
+  
+ 
+  
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,74 +39,61 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+
 - (IBAction)numberPressed:(UIButton *)sender {
-    if (![_textField.text integerValue]) {
+    if(_afterEqualWasPressed)
+    {
         _textField.text = @"";
+        [_calculateThis input:@"CE"];
+    }
+    _afterEqualWasPressed = NO;
+       
+    if ( [_textField.text rangeOfString:@"."].location !=NSNotFound && [sender.titleLabel.text isEqualToString:@"."])
+    {
+                return;
+         
+    }
+    
+    if([sender.titleLabel.text isEqualToString:@"+/-"]){
+        if([_textField.text rangeOfString:@"-"].location != NSNotFound)
+            _textField.text = [_textField.text substringFromIndex:1];
+        else
+            _textField.text = [@"-" stringByAppendingString:_textField.text];
+        return;
+    }
+    
+    if ([_textField.text isEqualToString:@"0"]) {
+        if(![sender.titleLabel.text isEqualToString:@"."]){
+            _textField.text = @"";
+        }
     }
     
     _textField.text = [_textField.text stringByAppendingString: sender.titleLabel.text];
     
-    //    NSString *digit = sender.titleLabel.text;
-//    if (_userIsInTheMiddleOfTypingANumber) {
-//        _textField.text = [_textField.text stringByAppendingString:digit];
-//    }
-//    else
-//    {
-//        _textField.text = digit;
-//        _userIsInTheMiddleOfTypingANumber = YES;
-//    }
-//    _number = [_textField.text doubleValue];
 }
-
-/*
--(IBAction)numberPressed:(id)sender
-{
-    _number = _number*10 + (float)[sender tag];
     
-    _textField.text = [NSString stringWithFormat:@"%2f",_number];
-}
-*/
-
--(IBAction)operatorPressed:(UIButton *)sender
+- (IBAction)operatorPressed:(UIButton *)sender
 {
-    if ([sender tag])
-    
+    _afterEqualWasPressed = NO;
     [_calculateThis input:_textField.text];
     [_calculateThis input:sender.titleLabel.text];
-
-    if ([sender.titleLabel.text isEqualToString:@"="]) {
-        _textField.text = [NSString stringWithFormat:@"%f", _calculateThis.result];
-    } else {
-        _textField.text = @"";
-    }
     
 }
-/*
-    _userIsInTheMiddleOfTypingANumber = NO;
-    CalculateThis *calculateThis = [[CalculateThis alloc]init];
-    [calculateThis setResult:_result];
-    [calculateThis setAccumulator:_number];
-    _result = [calculateThis calculateResult: _operation];
-    _textField.text = [NSString stringWithFormat:@"%2f", _result];
-    _number = 0;
-    if ([sender tag] == 0) {
-        _result = 0;
-    }
-    _operation = [sender tag];
 
+#pragma mark - CalcDelegate
+
+- (void)calculator:(CalculateThis *)calculator
+         putResult:(double)result {
+    
+    _textField.text = [NSString stringWithFormat:@"%f", result];
 }
 
--(IBAction)numberDelete:(id)sender
-{
-    _number = 0;
-    _textField.text = @"0";
+-(void) calculatorClear:(CalculateThis *)calculator {
+    _textField.text = @"";
 }
 
-- (IBAction) operationCancel:(id)sender
-{
-    _number = 0;
-    _textField.text = @"0";
-    _operation = 0;
+-(void) equalWasPressed:(CalculateThis *)calculator {
+    _afterEqualWasPressed = YES;
 }
- */
 @end

@@ -122,8 +122,8 @@
 			children = (
 				E756F2E317747CDD001574AE /* AppDelegate.h */,
 				E756F2E417747CDD001574AE /* AppDelegate.m */,
-				E756F2EC17747CDD001574AE /* MainStoryboard.storyboard */,
 				E756F2EF17747CDD001574AE /* ViewController.h */,
+				E756F2EC17747CDD001574AE /* MainStoryboard.storyboard */,
 				E756F2F017747CDD001574AE /* ViewController.m */,
 				E756F30F17748428001574AE /* CalculateThis.h */,
 				E756F31017748428001574AE /* CalculateThis.m */,

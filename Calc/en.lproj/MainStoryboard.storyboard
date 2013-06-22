@@ -269,7 +269,6 @@
                                 </state>
                                 <connections>
                                     <action selector="numberPressed:" destination="2" eventType="touchUpInside" id="kOe-wb-Ait"/>
-                                    <action selector="operatorPressed:" destination="2" eventType="touchUpInside" id="3qw-3h-Ucq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-NP-1pQ">
@@ -389,9 +388,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="numberDelete:"/>
                 <relationship kind="action" name="numberPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="operationCancel:"/>
                 <relationship kind="action" name="operatorPressed:"/>
                 <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
             </relationships>
