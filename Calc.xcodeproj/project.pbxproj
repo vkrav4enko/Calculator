@@ -24,6 +24,7 @@
 		E756F30317747CDD001574AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E756F30117747CDD001574AE /* InfoPlist.strings */; };
 		E756F30617747CDD001574AE /* CalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F30517747CDD001574AE /* CalcTests.m */; };
 		E756F31117748428001574AE /* CalculateThis.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F31017748428001574AE /* CalculateThis.m */; };
+		E78F8CAA1778F3B6005A1030 /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78F8CA81778F3B6005A1030 /* SplashController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		E756F30517747CDD001574AE /* CalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcTests.m; sourceTree = "<group>"; };
 		E756F30F17748428001574AE /* CalculateThis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateThis.h; sourceTree = "<group>"; };
 		E756F31017748428001574AE /* CalculateThis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateThis.m; sourceTree = "<group>"; };
+		E78F8CA71778F3B6005A1030 /* SplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
+		E78F8CA81778F3B6005A1030 /* SplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,12 +125,14 @@
 			children = (
 				E756F2E317747CDD001574AE /* AppDelegate.h */,
 				E756F2E417747CDD001574AE /* AppDelegate.m */,
-				E756F2EF17747CDD001574AE /* ViewController.h */,
 				E756F2EC17747CDD001574AE /* MainStoryboard.storyboard */,
+				E756F2EF17747CDD001574AE /* ViewController.h */,
 				E756F2F017747CDD001574AE /* ViewController.m */,
 				E756F30F17748428001574AE /* CalculateThis.h */,
 				E756F31017748428001574AE /* CalculateThis.m */,
 				E756F2DB17747CDD001574AE /* Supporting Files */,
+				E78F8CA71778F3B6005A1030 /* SplashController.h */,
+				E78F8CA81778F3B6005A1030 /* SplashController.m */,
 			);
 			path = Calc;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				E756F2E517747CDD001574AE /* AppDelegate.m in Sources */,
 				E756F2F117747CDD001574AE /* ViewController.m in Sources */,
 				E756F31117748428001574AE /* CalculateThis.m in Sources */,
+				E78F8CAA1778F3B6005A1030 /* SplashController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

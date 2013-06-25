@@ -9,11 +9,13 @@
 
 #import "CalculateThis.h"
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController () <CalcThisDelegate>
 
 @property (nonatomic, strong) CalculateThis *calculateThis;
 @property (nonatomic) BOOL afterEqualWasPressed;
+@property (nonatomic, strong) ViewController *lController;
 
 @end
 
@@ -28,8 +30,6 @@
     _calculateThis = [[CalculateThis alloc] init];
     _calculateThis.delegate = self; 
   
- 
-  
 
 }
 
@@ -38,6 +38,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark - Actions
 
@@ -48,6 +50,12 @@
         [_calculateThis input:@"CE"];
     }
     _afterEqualWasPressed = NO;
+    
+    if([sender.titleLabel.text isEqualToString:@"C"])
+    {
+        _textField.text = @"";
+        return;
+    }
        
     if ( [_textField.text rangeOfString:@"."].location !=NSNotFound && [sender.titleLabel.text isEqualToString:@"."])
     {
@@ -96,4 +104,19 @@
 -(void) equalWasPressed:(CalculateThis *)calculator {
     _afterEqualWasPressed = YES;
 }
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+
+}
+
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+//    if (UIInterfaceOrientationIsLandscape(fromInterfaceOrientation)) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    } else  if ((UIInterfaceOrientationIsPortrait(fromInterfaceOrientation))){
+//        [self performSegueWithIdentifier:@"showLandscape" sender:self];
+//    }
+//
+//}
+
+
 @end

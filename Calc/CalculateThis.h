@@ -29,5 +29,8 @@
 
 
 - (void)input: (NSString *)value;
+- (void) changeOperation: (NSString *) value;
+- (void) calculateResult: (NSString *) value;
+
 
 @end
