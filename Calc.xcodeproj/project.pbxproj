@@ -25,6 +25,7 @@
 		E756F30617747CDD001574AE /* CalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F30517747CDD001574AE /* CalcTests.m */; };
 		E756F31117748428001574AE /* CalculateThis.m in Sources */ = {isa = PBXBuildFile; fileRef = E756F31017748428001574AE /* CalculateThis.m */; };
 		E78F8CAA1778F3B6005A1030 /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78F8CA81778F3B6005A1030 /* SplashController.m */; };
+		E7C66FBF177A13D9002D533B /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = E7C66FBE177A13D9002D533B /* button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E756F31017748428001574AE /* CalculateThis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateThis.m; sourceTree = "<group>"; };
 		E78F8CA71778F3B6005A1030 /* SplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
 		E78F8CA81778F3B6005A1030 /* SplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
+		E7C66FBE177A13D9002D533B /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		E756F2DB17747CDD001574AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7C66FBE177A13D9002D533B /* button.png */,
 				E756F2DC17747CDD001574AE /* Calc-Info.plist */,
 				E756F2DD17747CDD001574AE /* InfoPlist.strings */,
 				E756F2E017747CDD001574AE /* main.m */,
@@ -246,6 +249,7 @@
 				E756F2E917747CDD001574AE /* Default@2x.png in Resources */,
 				E756F2EB17747CDD001574AE /* Default-568h@2x.png in Resources */,
 				E756F2EE17747CDD001574AE /* MainStoryboard.storyboard in Resources */,
+				E7C66FBF177A13D9002D533B /* button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

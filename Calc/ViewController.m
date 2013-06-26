@@ -11,11 +11,14 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 
+NSUInteger const BinButtonTag = 100;
+
 @interface ViewController () <CalcThisDelegate>
 
 @property (nonatomic, strong) CalculateThis *calculateThis;
 @property (nonatomic) BOOL afterEqualWasPressed;
 @property (nonatomic, strong) ViewController *lController;
+@property (nonatomic) UIButton * buttonSelect;
 
 @end
 
@@ -44,8 +47,23 @@
 #pragma mark - Actions
 
 - (IBAction)numberPressed:(UIButton *)sender {
+    
+    if([sender.titleLabel.text isEqualToString:@"bin"] || [sender.titleLabel.text isEqualToString:@"dec"] ||[sender.titleLabel.text isEqualToString:@"oct"] ||[sender.titleLabel.text isEqualToString:@"hex"])
+    {
+        _buttonSelect.selected = NO;
+        _buttonSelect = sender;
+        _buttonSelect.selected = YES;
+        
+        [_calculateThis changeNumeralSystem:_textField.text];
+        [_calculateThis changeNumeralSystem:sender.titleLabel.text];
+        _afterEqualWasPressed = YES;
+        return;
+    }
+   
+    
     if(_afterEqualWasPressed)
     {
+        _buttonSelect.selected = NO;
         _textField.text = @"";
         [_calculateThis input:@"CE"];
     }
@@ -56,6 +74,11 @@
         _textField.text = @"";
         return;
     }
+    
+
+    
+    
+    
        
     if ( [_textField.text rangeOfString:@"."].location !=NSNotFound && [sender.titleLabel.text isEqualToString:@"."])
     {
@@ -83,9 +106,12 @@
     
 - (IBAction)operatorPressed:(UIButton *)sender
 {
+    
+    _buttonSelect.selected = NO;
     _afterEqualWasPressed = NO;
     [_calculateThis input:_textField.text];
     [_calculateThis input:sender.titleLabel.text];
+    
     
 }
 
@@ -95,6 +121,12 @@
          putResult:(double)result {
         
     _textField.text = [@(result) stringValue];
+}
+
+-(void) calculator: (CalculateThis *) calculator
+           putText: (NSString *) text {
+    
+    _textField.text = text;
 }
 
 -(void) calculatorClear:(CalculateThis *)calculator {

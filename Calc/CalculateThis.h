@@ -18,6 +18,8 @@
          putResult:(double) result;
 - (void)calculatorClear: (CalculateThis *)calculator;
 - (void)equalWasPressed: (CalculateThis *)calculator;
+- (void)calculator:(CalculateThis *)calculator
+         putText:(NSString*) text;
 
 @end
 
@@ -28,9 +30,10 @@
 
 
 
-- (void)input: (NSString *)value;
+- (void) input: (NSString *)value;
 - (void) changeOperation: (NSString *) value;
 - (void) calculateResult: (NSString *) value;
+- (void) changeNumeralSystem: (NSString *) value;
 
 
 @end
