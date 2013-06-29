@@ -14,6 +14,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIView * portretView;
 
 -(IBAction)numberPressed:(UIButton *)sender;
 -(IBAction)operatorPressed:(id)sender;

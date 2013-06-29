@@ -32,7 +32,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [UIView animateWithDuration:3 animations:^{
+    [UIView animateWithDuration:.25 animations:^{
         self.view.alpha = 0;
     } completion:^(BOOL finished) {
         if (finished) {

@@ -10,7 +10,7 @@
 #import "CalculateThis.h"
 #import "ViewController.h"
 #import "AppDelegate.h"
-
+#define DegreesToRadians(x) ((x) * M_PI / 180.0)
 NSUInteger const BinButtonTag = 100;
 
 @interface ViewController () <CalcThisDelegate>
@@ -31,7 +31,9 @@ NSUInteger const BinButtonTag = 100;
 	// Do any additional setup after loading the view, typically from a nib.
     
     _calculateThis = [[CalculateThis alloc] init];
-    _calculateThis.delegate = self; 
+    _calculateThis.delegate = self;
+    
+   
   
 
 }
@@ -138,17 +140,40 @@ NSUInteger const BinButtonTag = 100;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-
+    
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+        toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+    
+        CGAffineTransform transform = CGAffineTransformMakeScale(1, 1.8);
+        [_portretView setTransform:transform];              
+       
+    }
+    
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+    {
+        CGAffineTransform transform = CGAffineTransformMakeScale(1, 1);
+        [_portretView setTransform:transform];
+    }
 }
 
-//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-//    if (UIInterfaceOrientationIsLandscape(fromInterfaceOrientation)) {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    } else  if ((UIInterfaceOrientationIsPortrait(fromInterfaceOrientation))){
-//        [self performSegueWithIdentifier:@"showLandscape" sender:self];
-//    }
-//
-//}
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return (UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft |
+            UIInterfaceOrientationMaskLandscapeRight | UIInterfaceOrientationMaskPortraitUpsideDown);
+}
+    
+
+
+
+
+    
+    
+
+
 
 
 @end
